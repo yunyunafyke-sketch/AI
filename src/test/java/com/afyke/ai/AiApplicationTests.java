@@ -10,4 +10,6 @@ class AiApplicationTests {
     void contextLoads() {
     }
 
+
+
 }

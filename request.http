@@ -1,0 +1,17 @@
+### test1
+GET http://localhost:8080/test1
+
+### test2
+GET http://localhost:8080/test2
+
+
+### test3
+GET http://localhost:8080/test3
+
+### test4
+GET http://localhost:8080/test4
+
+
+### Spring AI 普通问答
+GET http://localhost:8080/ai
+    ?question=你好，请用一句话介绍 Spring AI
