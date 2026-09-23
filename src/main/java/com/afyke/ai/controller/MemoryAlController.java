@@ -47,14 +47,16 @@ public class MemoryAlController {
         }
 
         // 发起本轮模型调用；记忆 Advisor 会在调用前后自动处理 Redis 中的聊天记录。
+        // prompt：开始组装一次 AI 请求，后面的 user、advisors 都是在配置这次请求。
         String answer = chatClient.prompt()
-                // 放入用户本轮问题。
+                // user：放入用户这一轮真正提出的问题；这里只传本轮消息，历史消息由聊天记忆 Advisor 自动读取。
                 .user(request.message())
-                // 指明本轮属于哪个会话；缺少它，Advisor 无法读取或保存对应记忆。
+                // advisors：类似 AI 调用的拦截器，可在请求发出前和响应回来后做额外处理；这里把会话 ID 交给聊天记忆 Advisor。
+                // 相同 conversationId 会继续读取同一段聊天记录，不同 conversationId 的聊天记录彼此隔离。
                 .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, conversationId))
-                // 执行同步模型调用。
+                // call：使用同步方式执行 AI 请求，当前线程会等待模型生成完整响应。
                 .call()
-                // 从模型响应中取出纯文本回答。
+                // content：从完整的模型响应对象中只取出文字回答。
                 .content();
 
         // 把会话 ID 和回答一起返回；客户端必须保存 ID，下一次继续携带它。
