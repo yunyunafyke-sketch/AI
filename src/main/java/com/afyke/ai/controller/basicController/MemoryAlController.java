@@ -1,4 +1,4 @@
-package com.afyke.ai.controller;
+package com.afyke.ai.controller.basicController;
 
 // 校验 @RequestBody 中的字段规则。
 import jakarta.validation.Valid;

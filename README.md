@@ -13,7 +13,7 @@
 | Spring AI | `2.0.0` |
 | Maven | `3.9.x` |
 | 启动类 | `com.afyke.ai.AiApplication` |
-| Controller | `com.afyke.ai.controller.AiController` |
+| Controller | `com.afyke.ai.controller.basicController.AiController` |
 | 接口 | `GET /ai?question=问题内容` |
 
 ## 2. 运行前准备

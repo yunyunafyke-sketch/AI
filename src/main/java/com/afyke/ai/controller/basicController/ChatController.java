@@ -1,4 +1,4 @@
-package com.afyke.ai.controller;
+package com.afyke.ai.controller.basicController;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;

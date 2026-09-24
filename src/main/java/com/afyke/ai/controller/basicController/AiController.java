@@ -1,4 +1,4 @@
-package com.afyke.ai.controller;
+package com.afyke.ai.controller.basicController;
 
 import com.afyke.ai.record.UserProfile;
 import org.springframework.ai.chat.client.ChatClient;
